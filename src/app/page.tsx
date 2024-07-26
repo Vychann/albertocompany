@@ -1,6 +1,6 @@
 "use client";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import React, { useState } from "react";
+import React, { Fragment, useState } from "react";
 import Header from "./components/Header";
 import Cart from "./components/Cart";
 import Footer from "./components/Footer";
@@ -49,17 +49,15 @@ export default function Page() {
   };
 
   return (
-    <Router>
+    <Fragment>
       <Header username={username} cartItemCount={cartItems.length} />
 
       <main className="main">
-        <Routes>
-          <Route path="/" element={<Home />} />
-        </Routes>
+        <Home />
       </main>
 
       <Footer />
-    </Router>
+    </Fragment>
   );
 }
 

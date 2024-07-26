@@ -79,8 +79,11 @@ export default function Header({ username, cartItemCount }: HeaderProps) {
   };
 
   function getInitialTheme() {
-    const savedTheme = localStorage.getItem("theme");
-    return savedTheme || "light";
+    if (typeof window !== "undefined") {
+      const savedTheme = localStorage.getItem("theme");
+      return savedTheme;
+    }
+    return "light";
   }
 
   const handleToggleCart = () => {
